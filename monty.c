@@ -38,12 +38,13 @@ int check_int(char *str)
 
 char *tokens(char *line, unsigned int line_number)
 {
+	char delim[2] = "\n ";
 	char *str = NULL, *token = NULL;
 
-	token = strtok(line, "\n ");
+	token = strtok(line, delim);
 	if (token == NULL)
 		return (NULL);
-	str = strtok(NULL, "\n ");
+	str = strtok(NULL, delim);
 	if (str != NULL)
 	{
 		if (check_int(str))
