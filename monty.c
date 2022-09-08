@@ -138,6 +138,7 @@ int main(int argc, char *argv[])
 				if (token != NULL)
 					func_type(token, &head, line_num);
 			}
+			free(line);
 			fclose(fd);
 		}
 	}
