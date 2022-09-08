@@ -52,13 +52,13 @@ char *tokens(char *line, unsigned int line_number)
 			global_var = atoi(str);
 		else
 		{
-			printf("L%d: usage: push integer\n", line_number);
+			fprintf(stderr, "L%d: usage: push integer\n", line_number);
 			exit(EXIT_FAILURE);
 		}
 	}
 	else if (str == NULL && strcmp(token, "push") == 0)
 	{
-		printf("L%d: usage: push integer\n", line_number);
+		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 	return (token);
@@ -94,7 +94,7 @@ void func_type(char *op, stack_t **stack, unsigned int line_number)
 		}
 		i++;
 	}
-	printf("L%d: unknown instruction %s\n", line_number, op);
+	fprintf(stderr, "L%d: unknown instruction %s\n", line_number, op);
 	exit(EXIT_FAILURE);
 }
 
@@ -125,7 +125,7 @@ int main(int argc, char *argv[])
 		fd = fopen(argv[1], "r");
 		if (fd == NULL)
 		{
-			printf("Error: Can't open file %s\n", argv[1]);
+			fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 			exit(EXIT_FAILURE);
 		}
 		else
