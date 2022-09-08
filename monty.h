@@ -53,5 +53,6 @@ void pint_func(stack_t **stack, unsigned int line_number);
 void pop_func(stack_t **stack, unsigned int line_number);
 void free_stack(stack_t *stack);
 void swap_func(stack_t **stack, unsigned int line_number);
+void add_func(stack_t **stack, unsigned int line_number);
 
 #endif
