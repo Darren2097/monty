@@ -10,13 +10,14 @@
 
 int check_int(char *str)
 {
-	int i = 0;
+	int i;
 
+	i = 0;
 	if (str[i] == '-')
 		i++;
 	while (*(str + i) != '\0')
 	{
-		if ((*(str + i) >= '0') && (*(str + i) <= '9'))
+		if (*(str + i) >= '0' && *(str + i) <= '9')
 		{
 			i++;
 		}
@@ -76,21 +77,22 @@ char *tokens(char *line, unsigned int line_number)
 
 void func_type(char *op, stack_t **stack, unsigned int line_number)
 {
-	int i;
-
 	instruction_t ops[] = {
 		{"push", push_func},
 		{"pall", pall_func},
 		{NULL, NULL}
 	};
 
-	for (i = 0; ops[i].opcode != NULL; i++)
+	int i = 0;
+
+	while (ops[i].opcode != NULL)
 	{
 		if (strcmp(ops[i].opcode, op) == 0)
 		{
 			ops[i].f(stack, line_number);
 			return;
 		}
+		i++;
 	}
 	printf("L%d: unknown instruction %s\n", line_number, op);
 	exit(EXIT_FAILURE);
