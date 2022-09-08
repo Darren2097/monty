@@ -49,7 +49,7 @@ void pall_func(stack_t **h, unsigned int line_num)
 
 	(void) line_num;
 	temp = *h;
-	
+
 	if ((*h) == NULL)
 		return;
 
