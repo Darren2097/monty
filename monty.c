@@ -80,6 +80,7 @@ void func_type(char *op, stack_t **stack, unsigned int line_number)
 	instruction_t ops[] = {
 		{"push", push_func},
 		{"pall", pall_func},
+		{"pint", pint_func},
 		{NULL, NULL}
 	};
 
@@ -112,7 +113,7 @@ int main(int argc, char *argv[])
 	ssize_t num_bytes;
 	size_t len = 0;
 	char *line = NULL, *token = NULL;
-	int line_num = 0;
+	unsigned int line_num = 0;
 	stack_t *head = NULL;
 
 	if (argc != 2)

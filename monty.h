@@ -49,5 +49,6 @@ char *tokens(char *line, unsigned int line_number);
 int check_int(char *str);
 void push_func(stack_t **stack, unsigned int line_number);
 void pall_func(stack_t **stack, unsigned int line_number);
+void pint_func(stack_t **stack, unsigned int line_number);
 
 #endif

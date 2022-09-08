@@ -59,3 +59,25 @@ void pall_func(stack_t **stack, unsigned int line_number)
 		temp = temp->next;
 	}
 }
+
+/**
+ * pint_func - prints the value at the top of the stack,
+ * followed by a new line
+ * @stack: stack
+ * @line_number: line number
+ *
+ * Return: void
+ */
+
+void pint_func(stack_t **stack, unsigned int line_number)
+{
+	stack_t *top = NULL;
+
+	if (*stack == NULL || stack == NULL)
+	{
+		fprintf(stderr, "L%d: can't pint, stack empty\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	top = *stack;
+	printf("%d\n", top->n);
+}
