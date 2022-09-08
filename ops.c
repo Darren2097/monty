@@ -107,3 +107,29 @@ void pop_func(stack_t **stack, unsigned int line_number)
 
 	free(top);
 }
+
+/**
+ * swap_func - swaps the top two elements of the stack
+ * @stack: stack
+ * @line_number: line number
+ *
+ * Return: void
+ */
+
+void swap_func(stack_t **stack, unsigned int line_number)
+{
+	stack_t *top = NULL, *second = NULL;
+
+	top = *stack;
+	if (top == NULL || top->next == NULL)
+	{
+		printf("L%d: can't swap, stack too short\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+
+	second = (*stack)->next;
+	top->prev = second;
+	top->next = second->next;
+	second->next = top;
+	*stack = second;
+}
