@@ -2,6 +2,24 @@
 #include "monty.h"
 
 /**
+ * free_stack - frees the stack
+ * @stack: stack to be freed
+ *
+ * Return: void
+ */
+
+void free_stack(stack_t **stack)
+{	
+ 	stack_t *temp = NULL;
+	while (stack)
+	{
+		temp = stack->next;
+		free(stack);
+		stack = temp;
+	}
+}
+
+/**
  * check_int - Checks if input is a number
  * @str: input to check
  *
@@ -141,6 +159,7 @@ int main(int argc, char *argv[])
 					func_type(token, &head, line_num);
 			}
 			free(line);
+			free_stack(head);
 			fclose(fd);
 		}
 	}
