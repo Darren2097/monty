@@ -31,12 +31,12 @@ int check_int(char *str)
 /**
  * tokens - tokenize the line
  * @line: line from file
- * @line_num: line number
+ * @line_number: line number
  *
  * Return: integer value
  */
 
-char *tokens(char *line, unsigned int line_num)
+char *tokens(char *line, unsigned int line_number)
 {
 	char *str = NULL, *token = NULL;
 
@@ -50,13 +50,13 @@ char *tokens(char *line, unsigned int line_num)
 			global_var = atoi(str);
 		else
 		{
-			printf("L%d: usage: push integer\n", line_num);
+			printf("L%d: usage: push integer\n", line_number);
 			exit(EXIT_FAILURE);
 		}
 	}
 	else if (str == NULL && strcmp(token, "push") == 0)
 	{
-		printf("L%d: usage: push integer\n", line_num);
+		printf("L%d: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 	return (token);
@@ -67,13 +67,13 @@ char *tokens(char *line, unsigned int line_num)
  * func_type - Searches the opcode in struct and checks if it matches with
  * user input
  * @op: opcode to check
- * @h: stack
- * @line_num: line number
+ * @stack: stack
+ * @line_number: line number
  *
  * Return: Pointer to function or NULL if it fails
  */
 
-void func_type(char *op, stack_t **h, unsigned int line_num)
+void func_type(char *op, stack_t **stack, unsigned int line_number)
 {
 	int i;
 
@@ -87,11 +87,11 @@ void func_type(char *op, stack_t **h, unsigned int line_num)
 	{
 		if (strcmp(ops[i].opcode, op) == 0)
 		{
-			ops[i].f(h, line_num);
+			ops[i].f(stack, line_number);
 			return;
 		}
 	}
-	printf("L%d: unknown instruction %s\n", line_num, op);
+	printf("L%d: unknown instruction %s\n", line_number, op);
 	exit(EXIT_FAILURE);
 }
 

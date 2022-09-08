@@ -2,17 +2,17 @@
 
 /**
  * push_func - pushes an element to the stack
- * @h: stack
- * @line_num: line number
+ * @stack: stack
+ * @line_number: line number
  *
  * Return: void
  */
 
-void push_func(stack_t **h, unsigned int line_num)
+void push_func(stack_t **stack, unsigned int line_number)
 {
 	stack_t *new = NULL;
 
-	(void) line_num;
+	(void) line_number;
 	new = malloc(sizeof(stack_t));
 	if (new == NULL)
 	{
@@ -22,35 +22,35 @@ void push_func(stack_t **h, unsigned int line_num)
 	new->n = global_var;
 	new->prev = NULL;
 
-	if (*h == NULL)
+	if (*stack == NULL)
 	{
 		new->next = NULL;
-		*h = new;
+		*stack = new;
 		return;
 	}
 
-	new->next = *h;
-	(*h)->prev = new;
-	*h = new;
+	new->next = *stack;
+	(*stack)->prev = new;
+	*stack = new;
 }
 
 /**
  * pall_func - prints all the values on the stack, starting from
  * the top of the stack
- * @h: stack
- * @line_num: line number
+ * @stack: stack
+ * @line_number: line number
  *
  * Return: void
  */
 
-void pall_func(stack_t **h, unsigned int line_num)
+void pall_func(stack_t **stack, unsigned int line_number)
 {
 	stack_t *temp = NULL;
 
-	(void) line_num;
-	temp = *h;
+	(void) line_number;
+	temp = *stack;
 
-	if ((*h) == NULL)
+	if ((*stack) == NULL)
 		return;
 
 	while (temp)
