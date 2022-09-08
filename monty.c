@@ -46,7 +46,7 @@ char *tokens(char *line, unsigned int line_num)
 	str = strtok(NULL, "\n ");
 	if (str != NULL)
 	{
-		if (check_int(str) == 1)
+		if (check_int(str))
 			global_var = atoi(str);
 		else
 		{
