@@ -1,6 +1,11 @@
 #ifndef MONTY_H
 #define MONTY_H
 
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+#include <sys/types.h>
+
 #define EXIT_SUCCESS 0
 #define EXIT_FAILURE 1
 extern int global_var;
@@ -37,5 +42,12 @@ typedef struct instruction_s
 	char *opcode;
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
+
+int main(int argc, char *argv[]);
+void func_type(char *op, stack_t **h, unsigned int line_num);
+char *tokens(char *line, unsigned int line_num);
+int check_int(char *str);
+void push_func(stack_t **h, unsigned int line_num);
+void pall_func(stack_t **h, unsigned int line_num);
 
 #endif

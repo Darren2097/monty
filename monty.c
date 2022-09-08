@@ -1,8 +1,5 @@
+#define _GNU_SOURCE
 #include "monty.h"
-#include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
-#include <sys/types.h>
 
 /**
  * check_int - Checks if input is a number
