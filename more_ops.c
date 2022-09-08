@@ -25,3 +25,17 @@ void add_func(stack_t **stack, unsigned int line_number)
 
 	pop_func(stack, line_number);
 }
+
+/**
+ * nop_func - does nothing
+ * @stack: stack
+ * @line_number: line_number
+ *
+ * Return: void
+ */
+
+void nop_func(stack_t **stack, unsigned int line_number)
+{
+	(void) stack;
+	(void) line_number;
+}
