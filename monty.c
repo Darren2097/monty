@@ -59,7 +59,8 @@ int check_int(char *str)
 char *tokens(char *line, unsigned int line_number)
 {
 	char delim[2] = "\n ";
-	char *str = NULL, *token = NULL;
+	char *str = NULL;
+	char *token = NULL;
 
 	token = strtok(line, delim);
 	if (token == NULL)
@@ -135,7 +136,8 @@ int main(int argc, char *argv[])
 	FILE *fd;
 	ssize_t num_bytes;
 	size_t len = 0;
-	char *line = NULL, *token = NULL;
+	char *line = NULL;
+	char *token = NULL;
 	unsigned int line_num = 0;
 	stack_t *head = NULL;
 
@@ -154,8 +156,7 @@ int main(int argc, char *argv[])
 		}
 		else
 		{
-			num_bytes = getline(&line, &len, fd);
-			while (num_bytes != -1)
+			while ((num_bytes = getline(&line, &len, fd)) != -1)
 			{
 				line_num++;
 				token = tokens(line, line_num);

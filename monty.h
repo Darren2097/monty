@@ -5,6 +5,8 @@
 #include <stdio.h>
 #include <string.h>
 #include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
 
 #define EXIT_SUCCESS 0
 #define EXIT_FAILURE 1
